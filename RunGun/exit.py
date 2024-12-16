@@ -4,7 +4,6 @@ from data import *
 # CLASSE PER EXIT 
 class Exit(pygame.sprite.Sprite):
     
-    #FUNZIONE PER CREARE LA DECORAZIONE
     def __init__(self,img,x,y):
         pygame.sprite.Sprite.__init__(self) 
         self.image = img 
