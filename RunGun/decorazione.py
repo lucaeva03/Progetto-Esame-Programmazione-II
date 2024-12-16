@@ -2,6 +2,7 @@ import pygame
 from data import *
 
 class Decorazione(pygame.sprite.Sprite):
+    
     def __init__(self, img, x, y, TILE_SIZE):
         pygame.sprite.Sprite.__init__(self)
         self.image = img
