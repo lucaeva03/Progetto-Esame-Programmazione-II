@@ -3,7 +3,6 @@ import pygame
 #CLASSE PER ESPLOSIONE
 class Esplosione(pygame.sprite.Sprite):
 
-    #FUNZIONE PER CREARE e AGGIORNARE L'ANIMAZIONE DI ESPLOSIONE
     def __init__(self,x,y,scale):
         pygame.sprite.Sprite.__init__(self)
         self.images=[]
