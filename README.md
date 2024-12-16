@@ -1,1 +1,4 @@
-# Progetto-Esame-Programmazione-II---Run-Gun
+# Progetto-Esame-Programmazione-II
+Titolo progetto: Run & Gun
+Studente: Luca Evangelisti
+
