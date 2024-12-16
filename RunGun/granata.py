@@ -7,7 +7,6 @@ from esplosione import *
 # CLASSE GRANATA PER CREARLA
 class Granata(pygame.sprite.Sprite):
 
-    #FUNZIONE PER CREARE LA GRANATA
     def __init__(self,x,y,direction):
         pygame.sprite.Sprite.__init__(self) 
         self.timer = 100 
@@ -20,6 +19,7 @@ class Granata(pygame.sprite.Sprite):
         self.height = self.image.get_height() 
         self.direction = direction 
 
+    #FUNZIONE PER AGGIORNARE STATO GRANATA
     def update(self,world,screen_scroll,player):
         #MOVIMENTO GRANATA e SBATTE SUL BORDO SE ESCE DALLO SCHERMO
         self.vel_y += GRAVITA 
