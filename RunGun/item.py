@@ -5,7 +5,6 @@ from img import *
 # CLASSE ITEM PER CREARLO, AGGIORNARLO E CONTROLLARE COLLISIONI
 class Item(pygame.sprite.Sprite):
     
-    #FUNZIONE PER CREARE L'ITEM
     def __init__(self,item_type,x,y,):
         pygame.sprite.Sprite.__init__(self) 
         self.item_type = item_type 
