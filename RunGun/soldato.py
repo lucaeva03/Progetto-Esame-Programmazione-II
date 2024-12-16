@@ -9,7 +9,6 @@ from audio import *
 # CLASSE SOLDATO PER CREARLO, POSIZIONARLO, ANIMARLO
 class Soldato(pygame.sprite.Sprite):
 
-    # FUNZIONE PER CREAZIONE DEL SOLDATO e INIZIALIZZAZIONE VARIABILI
     def __init__(self,char_type,x,y,scale,speed,ammo,grenades):
         pygame.sprite.Sprite.__init__(self) 
 
