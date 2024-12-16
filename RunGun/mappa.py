@@ -11,7 +11,7 @@ from exit import *
 
 # CLASSE MAPPA PER CREARLA, ASSOCIARE LE VARIE TILE ALLA LORO POSIZIONE
 class Mappa():
-    #FUNZIONE PER CREARE LA LISTA DELLE TILE VUOTA
+
     def __init__(self):
         self.obstacle_list = [] 
 
