@@ -166,6 +166,7 @@ while run:
                 run = False 
             # RIAVVIO LIVELLO
             if restart_button.draw(screen): 
+                dead_sound_played = False 
                 bg_scroll = 0 
                 start_trans = True 
                 world_data = resetta_livello() 
