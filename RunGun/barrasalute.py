@@ -2,7 +2,7 @@ import pygame
 from data import *
 from img import *
 
-# CLASSE BARRA SALUTE, NB: non è necessario sprite group perchè non è un oggetto che si muove o che ha bisogno di essere controllato da pygame.sprite.Group
+# CLASSE BARRA SALUTE
 class BarraSalute():
 
     def __init__(self,x,y,health,max_health):
