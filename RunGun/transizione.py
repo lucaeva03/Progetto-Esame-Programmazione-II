@@ -4,7 +4,6 @@ from img import *
 # CLASSE PER TRANSIZIONE    
 class Transizione():
 
-    # FUNZIONE PER CREARE LA CLASSE
     def __init__(self, direction, colour, speed):
         self.direction = direction 
         self.colour = colour 
