@@ -5,7 +5,6 @@ from sprite import *
 # CLASSE PROIETTILE PER CREARLO, AGGIORNARLO E CONTROLLARE COLLISIONI
 class Proiettile(pygame.sprite.Sprite):
     
-    #FUNZIONE PER CREARE IL PROIETTILE
     def __init__(self,x,y,direction):
         pygame.sprite.Sprite.__init__(self) 
         self.speed = 10 
