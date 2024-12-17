@@ -24,7 +24,7 @@ class Proiettile(pygame.sprite.Sprite):
         for tile in world.obstacle_list: 
             if tile[1].colliderect(self.rect): 
                 self.kill() 
-        # CONTROLLA COLLISIONI CON ALTRI NEMICI
+        # CONTROLLA COLLISIONI CON PLAYER E NEMICI
         if pygame.sprite.spritecollide(player, gruppo_proiettile, False): 
             if player.alive: 
                 player.health -= 5 
