@@ -11,7 +11,7 @@ class Bottone():
         self.rect.topleft = (x, y)
         self.clicked = False
 
-	# FUNZIONE PER DISEGNARE IL BOTTONE
+	# FUNZIONE PER FUNZIONAMENTO BOTTONE
     def draw(self, surface):
         action = False
         pos = pygame.mouse.get_pos()
