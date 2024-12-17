@@ -37,6 +37,14 @@ pine2_img = pygame.image.load('img/Background/pine2.png').convert_alpha()
 mountain_img = pygame.image.load('img/Background/mountain.png').convert_alpha()
 sky_img = pygame.image.load('img/Background/sky_cloud.png').convert_alpha()
 
+#DEFINIZIONE FONT
+font = pygame.font.SysFont('Future', 30)
+
+# DEFINIZIONE COLORI
+GREEN = (144, 201, 120)
+WHITE = (255, 255, 255)
+RED = (200, 25, 25)
+
 # METTERE LE IMMAGINI IN UNA LISTA
 img_list = []
 for x in range(TILE_TYPES):
@@ -55,45 +63,10 @@ for row in range (ROWS) :
     world_data.append(r)
 
 # CREAZIONE TERRENO BASE
-for tile in range(0, MAX_COLS):
-    world_data[ROWS - 1][tile] = 0 
+for cols in range(0, MAX_COLS):
+    world_data[ROWS - 1][cols] = 0 # (ROWS - 1) = ultima riga
 
-#DEFINIZIONE FONT
-font = pygame.font.SysFont('Future', 30)
-
-# DEFINIZIONE COLORI
-GREEN = (144, 201, 120)
-WHITE = (255, 255, 255)
-RED = (200, 25, 25)
-
-#FUNZIONE PER SCRIVERE SU SCHERMO
-def draw_text(text, font, text_col, x, y): 
-    img = font.render(text, True, text_col)
-    screen.blit(img, (x, y)) 
-
-# FUNZIONI PER IL POSIZIONARE LE IMMAGINI DEL BACKGROUND
-def posiziona_bg():
-    screen.fill(GREEN)
-    width = sky_img.get_width()
-    for x in range (4): 
-        screen.blit(sky_img, ((x * width) - scroll * 0.5, 0)) 
-        screen.blit(mountain_img, ((x * width) - scroll * 0.6 , SCREEN_HEIGHT - mountain_img.get_height() - 300))
-        screen.blit(pine1_img, ((x * width) - scroll * 0.7, SCREEN_HEIGHT - pine1_img.get_height() - 150))
-        screen.blit(pine2_img, ((x * width) - scroll * 0.8, SCREEN_HEIGHT - pine2_img.get_height()))
-
-# FUNZIONE PER disegnare griglia
-def disegna_griglia():
-    for c in range(MAX_COLS + 1):
-        pygame.draw.line(screen, WHITE, (c * TILE_SIZE - scroll, 0), (c * TILE_SIZE - scroll, SCREEN_HEIGHT))
-    for c in range(ROWS + 1):
-        pygame.draw.line(screen, WHITE, (0, c * TILE_SIZE), (SCREEN_WIDTH, c * TILE_SIZE))
-
-#FUNZIONE PER POSIZIONARE LE IMMAGINI DEI TILE IN BASE ALLA LISTA world_data
-def posiziona_world():
-    for y, row in enumerate(world_data): 
-        for x, tile in enumerate(row): 
-            if tile >= 0: 
-                screen.blit(img_list[tile], (x * TILE_SIZE - scroll, y * TILE_SIZE)) 
+# ------------------------------------ ISTANZE DI CLASSE  ----------------------------------------
 
 #CREAZIONE BOTTONI SALVATAGGIO E CARICAMENTO
 save_button = Bottone(SCREEN_WIDTH // 2, SCREEN_HEIGHT + LOWER_MARGIN -50, save_img, 1) 
@@ -111,6 +84,37 @@ for i in range(len(img_list)):
         button_row += 1 
         button_col = 0 
 
+# ------------------------------------ FUNZIONI ----------------------------------------
+
+#FUNZIONE PER SCRIVERE SU SCHERMO
+def draw_text(text, font, text_col, x, y): 
+    img = font.render(text, True, text_col)
+    screen.blit(img, (x, y)) 
+
+# FUNZIONI PER POSIZIONARE LE IMMAGINI DEL BACKGROUND
+def posiziona_bg():
+    screen.fill(GREEN)
+    width = sky_img.get_width()
+    for x in range (4): 
+        screen.blit(sky_img, ((x * width) - scroll * 0.5, 0)) 
+        screen.blit(mountain_img, ((x * width) - scroll * 0.6 , SCREEN_HEIGHT - mountain_img.get_height() - 300))
+        screen.blit(pine1_img, ((x * width) - scroll * 0.7, SCREEN_HEIGHT - pine1_img.get_height() - 150))
+        screen.blit(pine2_img, ((x * width) - scroll * 0.8, SCREEN_HEIGHT - pine2_img.get_height()))
+
+# FUNZIONE PER disegnare griglia
+def disegna_griglia():
+    for c in range(MAX_COLS + 1):
+        pygame.draw.line(screen, WHITE, (c * TILE_SIZE - scroll, 0), (c * TILE_SIZE - scroll, SCREEN_HEIGHT))
+    for r in range(ROWS + 1):
+        pygame.draw.line(screen, WHITE, (0, r * TILE_SIZE), (SCREEN_WIDTH, r * TILE_SIZE))
+
+#FUNZIONE PER POSIZIONARE LE IMMAGINI DEI TILE IN BASE ALLA LISTA world_data
+def posiziona_mondo():
+    for y, row in enumerate(world_data): # enumerate fornisce sia l'indice che il valore della lista (y = indice, row = valore riga)
+        for x, tile in enumerate(row): # enumerate fornisce sia l'indice che il valore della lista (x = indice, tile = valore colonna)
+            if tile >= 0:
+                screen.blit(img_list[tile], (x * TILE_SIZE - scroll, y * TILE_SIZE)) 
+
 # ------------------------------------ MAIN ----------------------------------------
 
 #INIZIALIZZAZIONE
@@ -123,10 +127,10 @@ while run:
     # POSIZIONA BACKGROUND
     posiziona_bg()
     disegna_griglia()
-    posiziona_world()
+    posiziona_mondo()
     draw_text(f'Livello: {level}', font, WHITE, 10, SCREEN_HEIGHT + LOWER_MARGIN - 90)
     
-    # SALVATAGGIO E CARICAMENTO DEI DATI --> USO LIBRERIA CSV --> APPROFONDIRE
+    # SALVATAGGIO E CARICAMENTO DEI DATI --> USO LIBRERIA CSV
     # SALVATAGGIO DEI DATI
     if save_button.draw(screen): 
         # SALVATAGGIO DEI DATI
