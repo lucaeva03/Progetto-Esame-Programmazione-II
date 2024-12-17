@@ -178,9 +178,6 @@ while run:
                             world_data[x][y] = int(tile) 
                 world = Mappa() 
                 player, barra_salute = world.process_data(world_data) 
-
-        # RICHIAMO FUNZIONE MOVIMENTO PLAYER PER AGGIORNAMENTO POSIZIONE
-        player.movimento(moving_left, moving_right, world, screen_scroll)
     
     # CONTROLLO DEGLI EVENTI - ITERAZIONI DI GIOCO PER IL PLAYER
     for event in pygame.event.get():        
