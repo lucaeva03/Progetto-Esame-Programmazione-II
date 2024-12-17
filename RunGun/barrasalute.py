@@ -13,8 +13,8 @@ class BarraSalute():
 
     # FUNZIONE PER AGGIORNARE BARRA SALUTE
     def update(self, health):
-        self.health = health # aggiorna la salute del giocatore
-        ratio = self.health/self.max_health # calcola il rapporto tra la salute attuale e la salute massima
-        pygame.draw.rect(screen, RED, (self.x, self.y, 150, 20)) # disegna la barra rossa che sarà sotto alla barra della salute e indicherà la salute persa
-        pygame.draw.rect(screen, GREEN, (self.x, self.y, 150 * ratio, 20)) # disegna la barra della salute in base alla salute attuale del giocatore che viene rappresentata da 150 * ratio dove ratio è la salute attuale divisa per la salute massima
-        pygame.draw.rect(screen, BLACK, (self.x, self.y, 150, 20), 2) # disegna il contorno (verso l'interno) della barra della salute dandogli le dimensioni del rettangolo e la dimensione del bordo (2)
+        self.health = health 
+        ratio = self.health/self.max_health 
+        pygame.draw.rect(screen, RED, (self.x, self.y, 150, 20))
+        pygame.draw.rect(screen, GREEN, (self.x, self.y, 150 * ratio, 20)) 
+        pygame.draw.rect(screen, BLACK, (self.x, self.y, 150, 20), 2) 
