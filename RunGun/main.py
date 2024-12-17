@@ -24,7 +24,7 @@ from reset import *
 # ------------------------- DEFINIZIONE ISTANZE DI CLASSE  ---------------------------
 
 # CREAZIONE TRANSIZIONE INIZIALE E TRA LIVELLI
-trans_fade = Transizione(1, BLACK, 6)
+trans_fade = Transizione(BLACK, 6)
 
 # CREAZIONE BOTTONI
 start_button = Bottone(275, SCREEN_HEIGHT // 2 - 130, start_img, 1) 
